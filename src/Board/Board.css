@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;900&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=VT323&display=swap');
+
+.board {
+    outline: 2px solid rgb(134, 154, 189);
+}
+
+.row {
+    height: 35px;
+}
+
+.cell {
+    width: 35px;
+    height: 35px;
+    outline: 1px solid rgb(134, 154, 189);
+    display: inline-block;
+}
+
+.cell-green {
+    background-color: green;
+}
+
+.cell-red {
+    background-color: red;
+}
+
+.cell-purple {
+    background-color: purple;
+}
+
+.wall {
+    background-color: black;
+}
+
+.game-over {
+    font-family: 'VT323';
+    color: red;
+    font-size: 10rem;
+    position: absolute;
+    top: 200px;
+    margin-left: -25px;
+}
+
+.play-again {
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: brown;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    position: absolute;
+    top: 500px;
+    margin-left: -70px;
+    cursor: pointer;
+}
+
+.play-again:hover {
+    background-color: red;
+}
