@@ -2,22 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./Board.css"
 import { randomIntFromInterval, useInterval } from "../lib/utils.js"
 
-class LinkedListNode {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
-}
-
-class SinglyLinkedList {
-    constructor(value) {
-        const node = new LinkedListNode(value);
-        this.head = node;
-        this.tail = node;
-    }
-}
-
-
 var delay = 300;
 var appleCell = 55
 var prevApple = appleCell;
@@ -37,7 +21,7 @@ for (let i = 0; i < BOARD_SIZE; i++) {
 function Board() {
     const [board, setBoard] = useState(createBoard(BOARD_SIZE));
     const [snakeCells, setSnakeCells] = useState(new Set([113, 114]));
-    const [snake, setSnake] = useState(new SinglyLinkedList([61]));
+    // const [snake, setSnake] = useState(new SinglyLinkedList([61]));
     const [endGame, setEndGame] = useState(false);
     const [key, setKey] = useState("");
     const [lastKey, setLastKey] = useState("");
@@ -57,6 +41,7 @@ function Board() {
     }
 
     function handleKeyDown(key) {
+        console.log(wall.has(snakeCells[0] - 1))
         if (key !== "" && !endGame) {
             switch (key) {
                 case "ArrowUp":
@@ -87,7 +72,7 @@ function Board() {
                     if (lastKey !== 'ArrowLeft') {
                         setSnakeCells(prevItems => {
                             var last = [...prevItems];
-                            if (wall.has(last[0] - + 1)) setEndGame(true)
+                            if (wall.has(last[0] + 1)) setEndGame(true)
                             if (last[0] !== prevApple) last.pop()
                             else getAppleCell()
                             last = [last[0] + 1, ...last]
@@ -170,7 +155,7 @@ function Board() {
             {board.map((row, rowIdx) => (
                 <div key={rowIdx} className="row">
                     {row.map((cellValue, cellIdx) => (
-                        <div key={cellIdx} className={`cell ${snakeCells.has(cellValue) && "cell-green"} ${cellValue === appleCell && "cell-red"} ${wall.has(cellValue) && "wall"}`}>{cellValue}</div>
+                        <div key={cellIdx} className={`cell ${snakeCells.has(cellValue) && "cell-green"} ${cellValue === appleCell && "cell-red"} ${wall.has(cellValue) && "wall"}`}></div>
                     ))}</div>
             ))}
             {endGame && <h1 className="game-over">GAME OVER</h1>}
