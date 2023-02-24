@@ -1,3 +1,5 @@
+# Link to live app: https://snake-game-react.onrender.com
+-----------------------------------------------------------------------
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
